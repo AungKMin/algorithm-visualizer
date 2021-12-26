@@ -134,7 +134,7 @@ export default function MiniDrawer() {
                 </DrawerHeader>
                 <Divider />
                 <List>
-                    {['/selection_sort', '/insertion_sort', '/bubble_sort', '/merge_sort'].map((text, index) => (
+                    {['/selection_sort', '/insertion_sort', '/bubble_sort', '/merge_sort', '/binary_search'].map((text, index) => (
                         <Link to={text} style={{textDecoration: 'none', color: 'inherit'}}>
                             <ListItem button key={text.slice(1).split('_').map((e, i) => (e.charAt(0).toUpperCase() + e.slice(1))).join(' ')}>
                                 <ListItemIcon>
