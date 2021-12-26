@@ -1,7 +1,5 @@
 # Algorithm Visualizer Built in React
 
-Client for Productivity Organizer. 
-
 Demo: to be created
 
 Hosted here: https://algorithm-visualizer-aungkmin.netlify.app
@@ -13,17 +11,17 @@ Hosted here: https://algorithm-visualizer-aungkmin.netlify.app
 The app visualizes algorithms by representing the elements in the array as bars. The user can enter their own data and iterate through each step of the algorithm.  
 
 ### Current Algorithms
-Insertion Sort
-Selection Sort
-Bubble Sort
-Merge Sort
+* Insertion Sort
+* Selection Sort
+* Bubble Sort
+* Merge Sort
 
 ### Algorithms to be implemented in the future
-Quick Sort
-Binary Search
+* Quick Sort
+* Binary Search
 
 ### Features to be implemented in the future
-Use of color to display algorithm steps more clearly
+* Use of color to display algorithm steps more clearly
 
 ## Getting Started
 
