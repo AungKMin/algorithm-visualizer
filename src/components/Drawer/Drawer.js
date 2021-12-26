@@ -15,9 +15,8 @@ import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import ListItem from '@mui/material/ListItem';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
-import MailIcon from '@mui/icons-material/Mail';
 import AutoAwesomeMotionIcon from '@mui/icons-material/AutoAwesomeMotion';
+import HomeIcon from '@mui/icons-material/Home';
 
 import {Link} from 'react-router-dom';
 
@@ -151,7 +150,7 @@ export default function MiniDrawer() {
                     <Link to="/" style={{textDecoration: 'none', color: 'inherit'}}>
                         <ListItem button key="home">
                             <ListItemIcon>
-                                <InboxIcon />
+                                <HomeIcon />
                             </ListItemIcon>
                             <ListItemText primary="Home" />
                         </ListItem>
