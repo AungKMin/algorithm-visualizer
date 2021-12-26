@@ -15,10 +15,10 @@ The app visualizes algorithms by representing the elements in the array as bars.
 * Selection Sort
 * Bubble Sort
 * Merge Sort
+* Binary Search
 
 ### Algorithms to be implemented in the future
 * Quick Sort
-* Binary Search
 
 ### Features to be implemented in the future
 * Use of color to display algorithm steps more clearly
