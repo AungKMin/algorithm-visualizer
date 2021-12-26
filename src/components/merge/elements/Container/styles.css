@@ -1,0 +1,63 @@
+.container { 
+    display: flex;
+    /* flex-wrap: wrap; */
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2%;
+    width: 80%;
+    height: 80%;
+}
+
+.barsContainer { 
+    display: flex;
+    /* flex-wrap: wrap; */
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 2%;
+    width: 80%;
+    height: 80%;
+}
+
+.buttonsContainer { 
+    display: flex;
+    flex-direction: row;
+    gap: 10%;
+}
+
+.button { 
+    display: inline-block;
+    outline: 0;
+    border: 0;
+    cursor: pointer;
+    background-color: #4299e1;
+    border-radius: 4px;
+    padding: 8px 16px;
+    font-size: 16px;
+    font-weight: 700;
+    color: white;
+    line-height: 26px;
+
+}
+
+
+.controlsContainer { 
+    display: flex;
+    gap: 5%;
+}
+
+h1.demo {
+    text-align: center;
+    font-size: 2.4rem;
+    font-weight: normal;
+    margin-bottom: 1rem;
+    color: #f5f6ff;
+  }
+  a.demo {
+    text-align: center;
+    font-size: 1.6rem;
+    font-weight: normal;
+    color: rgba(202, 205, 239, 0.8);
+    margin-bottom: 3rem;
+  }
