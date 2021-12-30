@@ -21,7 +21,6 @@ The app visualizes algorithms by representing the elements in the array as bars.
 * Quick Sort
 
 ### Features to be implemented in the future
-* Use of color to display algorithm steps for sorting algorithms more clearly
 
 ## Getting Started
 
