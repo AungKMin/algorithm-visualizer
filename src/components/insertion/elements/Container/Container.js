@@ -4,23 +4,33 @@ import './styles.css';
 import Bar from '../Bar/Bar.js';
 import { addToTrace, newTrace, nextState, previousState} from '../../../../helpers/Trace/Trace.js';
 
+import COLORS from '../../../../helpers/constants/colors.js';
 
 // performs insertion sort and keeps trace of the steps
 function insertionSort(trace, arr, colors) {
     
-    // addToTrace(trace, arr);
+    addToTrace(trace, arr, colors);
 
     for (let k = 0; k < arr.length; ++k) {
         let value = arr[k];
         let i = 0;
         for (i = k; i > 0 && value < arr[i - 1]; --i) {
-            arr[i] = arr[i - 1];
+            swap(arr, i, i - 1);
+            swap(colors, i, i - 1);
             addToTrace(trace, arr, colors);
         }
-        arr[i] = value;
-        addToTrace(trace, arr, colors);
+        // arr[i] = value;
+        // addToTrace(trace, arr, colors);
     }
 
+}
+
+
+function swap(arr, i, j)
+{
+    let temp = arr[i];
+    arr[i] = arr[j];
+    arr[j] = temp;
 }
 
 function Container() {
@@ -48,7 +58,7 @@ function Container() {
         let newTraceObject = newTrace();
         // get array to be sorted from input field
         let dataInput = e.target.data.value.split(',').map((c) => (Number(c)));
-        let colors = dataInput.map((c) => ('blue'));
+        let colors = dataInput.map((c, index) => (COLORS[index % COLORS.length]));
         // make the trace with sort
         insertionSort(newTraceObject, dataInput, colors);
         // reset the state number
@@ -77,7 +87,7 @@ function Container() {
         <div className="container">
             <div className="barsContainer">
                 {[...Array(dataLength)].map((value, index) => (
-                    <Bar height={currentState.heights[index]/Math.max(...currentState.heights)} />
+                    <Bar height={currentState.heights[index]/Math.max(...currentState.heights)} color={currentState.colors[index]}/>
                 ))}
             </div>
             <div className="buttonsContainer">

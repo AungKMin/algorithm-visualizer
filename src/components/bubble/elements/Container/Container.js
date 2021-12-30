@@ -4,6 +4,7 @@ import './styles.css';
 import Bar from '../Bar/Bar.js';
 import { addToTrace, newTrace, nextState, previousState} from '../../../../helpers/Trace/Trace.js';
 
+import COLORS from '../../../../helpers/constants/colors.js';
 
 // performs bubblen sort and keeps trace of the steps
 function bubbleSort(trace, arr, colors) {
@@ -17,6 +18,7 @@ function bubbleSort(trace, arr, colors) {
         {
             if (arr[j] > arr[j+1]) {
                 swap(arr,j,j+1);
+                swap(colors, j, j + 1);
                 addToTrace(trace, arr, colors);
             }
         }
@@ -56,7 +58,7 @@ function Container() {
         let newTraceObject = newTrace();
         // get array to be sorted from input field
         let dataInput = e.target.data.value.split(',').map((c) => (Number(c)));
-        let colors = dataInput.map((c) => ('blue'));
+        let colors = dataInput.map((c, index) => (COLORS[index % COLORS.length]));
         // make the trace with sort
         bubbleSort(newTraceObject, dataInput, colors);
         // reset the state number
@@ -85,7 +87,7 @@ function Container() {
         <div className="container">
             <div className="barsContainer">
                 {[...Array(dataLength)].map((value, index) => (
-                    <Bar height={currentState.heights[index]/Math.max(...currentState.heights)} />
+                    <Bar height={currentState.heights[index]/Math.max(...currentState.heights)} color={currentState.colors[index]}/>
                 ))}
             </div>
             <div className="buttonsContainer">

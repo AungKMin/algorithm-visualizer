@@ -4,6 +4,8 @@ import './styles.css';
 import Bar from '../Bar/Bar.js';
 import { addToTrace, newTrace, nextState, previousState} from '../../../../helpers/Trace/Trace.js';
 
+import COLORS from '../../../../helpers/constants/colors.js';
+
 
 // performs selection sort and keeps trace of the steps
 function selectionSort(trace, arr, colors) {
@@ -20,8 +22,11 @@ function selectionSort(trace, arr, colors) {
                 minIndex = j; 
             }
         }
-        swap(arr,minIndex, i);
-        addToTrace(trace, arr, colors);
+        if (minIndex != i) { 
+            swap(arr,minIndex, i);
+            swap(colors, minIndex, i);
+            addToTrace(trace, arr, colors);
+        }
     }
 }
 
@@ -57,7 +62,7 @@ function Container() {
         let newTraceObject = newTrace();
         // get array to be sorted from input field
         let dataInput = e.target.data.value.split(',').map((c) => (Number(c)));
-        let colors = dataInput.map((c) => ('blue'));
+        let colors = dataInput.map((c, index) => (COLORS[index % COLORS.length]));
         // make the trace with sort
         selectionSort(newTraceObject, dataInput, colors);
         // reset the state number
@@ -86,7 +91,7 @@ function Container() {
         <div className="container">
             <div className="barsContainer">
                 {[...Array(dataLength)].map((value, index) => (
-                    <Bar height={currentState.heights[index] / Math.max(...currentState.heights)} />
+                    <Bar height={currentState.heights[index] / Math.max(...currentState.heights)} color={currentState.colors[index]} />
                 ))}
             </div>
             <div className="buttonsContainer">

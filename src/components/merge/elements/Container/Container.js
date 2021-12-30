@@ -4,6 +4,7 @@ import './styles.css';
 import Bar from '../Bar/Bar.js';
 import { addToTrace, newTrace, nextState, previousState} from '../../../../helpers/Trace/Trace.js';
 
+import COLORS from '../../../../helpers/constants/colors.js';
 
 // performs merge sort and keeps trace of the steps
 function mergeSort(trace, arr, colors, start, end) {
@@ -24,11 +25,19 @@ function merge(trace, arr, colors, start, middle, end)
   
     let L = new Array(n1); 
     let R = new Array(n2);
+    let Lcolor = new Array(n1); 
+    let Rcolor = new Array(n2);
   
     for (let i = 0; i < n1; i++)
         L[i] = arr[start + i];
     for (let j = 0; j < n2; j++)
         R[j] = arr[middle + 1 + j];
+
+    // colors
+    for (let i = 0; i < n1; ++i)
+        Lcolor[i] = colors[start + i];
+    for (let j = 0; j < n2; j++)
+        Rcolor[j] = colors[middle + 1 + j];
   
   
     let i = 0;
@@ -40,29 +49,33 @@ function merge(trace, arr, colors, start, middle, end)
     while (i < n1 && j < n2) {
         if (L[i] <= R[j]) {
             arr[k] = L[i];
+            colors[k] = Lcolor[i];
             i++;
         }
         else {
             arr[k] = R[j];
+            colors[k] = Rcolor[j]; 
             j++;
         }
-        addToTrace(trace, arr, colors); 
         k++;
     }
-  
+    // addToTrace(trace, arr, colors); 
+    
     while (i < n1) {
         arr[k] = L[i];
+        colors[k] = Lcolor[i];
         i++;
         k++;
-        addToTrace(trace, arr, colors); 
     }
-
+    // addToTrace(trace, arr, colors); 
+    
     while (j < n2) {
         arr[k] = R[j];
+        colors[k] = Rcolor[j];
         j++;
         k++;
-        addToTrace(trace, arr, colors); 
     }
+    addToTrace(trace, arr, colors); 
 }
 
 function Container() {
@@ -90,7 +103,7 @@ function Container() {
         let newTraceObject = newTrace();
         // get array to be sorted from input field
         let dataInput = e.target.data.value.split(',').map((c) => (Number(c)));
-        let colors = dataInput.map((c) => ('blue'));
+        let colors = dataInput.map((c, index) => (COLORS[index % COLORS.length]));
         // add an initial step to trace
         addToTrace(newTraceObject, dataInput, colors);
         // make the trace with sort
@@ -121,7 +134,7 @@ function Container() {
         <div className="container">
             <div className="barsContainer">
                 {[...Array(dataLength)].map((value, index) => (
-                    <Bar height={currentState.heights[index]/Math.max(...currentState.heights)} />
+                    <Bar height={currentState.heights[index]/Math.max(...currentState.heights)} color={currentState.colors[index]}/>
                 ))}
             </div>
             <div className="buttonsContainer">

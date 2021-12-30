@@ -4,7 +4,7 @@ import './styles.css'
 function Bar (props) { 
 
     return(
-        <div class="bar" style = {{height: `${props.height*80}%`}}></div>
+        <div class="bar" style = {{height: `${props.height*80}%`, backgroundColor: `${props.color}`}}></div>
     );
 }
 
