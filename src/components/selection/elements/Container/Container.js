@@ -22,7 +22,7 @@ function selectionSort(trace, arr, colors) {
                 minIndex = j; 
             }
         }
-        if (minIndex != i) { 
+        if (minIndex !== i) { 
             swap(arr,minIndex, i);
             swap(colors, minIndex, i);
             addToTrace(trace, arr, colors);
