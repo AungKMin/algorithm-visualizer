@@ -96,6 +96,7 @@ function Container() {
                 <button onClick={nextStep} className="button">Next</button>
             </div>
             <form className="controlsContainer" onSubmit={dataSubmit}> 
+                <p> Array: </p>
                 <input type="text" className="text" name="data"></input>
                 <input type="submit" className="button" value="Submit"></input> 
             </form>
