@@ -4,7 +4,6 @@ import './styles.css';
 import Bar from '../Bar/Bar.js';
 import { addToTrace, newTrace, nextState, previousState} from '../../../../helpers/Trace/Trace.js';
 
-
 // performs binary search and keeps trace of the steps
 function binarySearch(trace, arr, colors, value) {
     
@@ -59,7 +58,7 @@ function Container() {
         // get array to be sorted from input field
         let dataInput = e.target.data.value.split(',').map((c) => (Number(c)));
         // set value to search for
-        setValue(parseFloat(e.target.value.value));
+        // setValue(parseFloat(e.target.value.value));
         let colors = dataInput.map((c) => (''));
         // make the trace with search
         binarySearch(newTraceObject, dataInput, colors, parseFloat(e.target.value.value));
@@ -85,8 +84,8 @@ function Container() {
     // length of the array to be sorted
     const [dataLength, setDataLength] = useState(0);
 
-    // value to search for
-    const [value, setValue] = useState(0);
+    // // value to search for
+    // const [value, setValue] = useState(0);
 
     return (
         <div className="container">
