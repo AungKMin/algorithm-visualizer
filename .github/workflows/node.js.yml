@@ -46,5 +46,5 @@ jobs:
       - uses: actions/setup-node@v2
         with: 
           node-version: '17.x'
-      - run: npm ci 
+      - run: npm install 
       - run: npm start
