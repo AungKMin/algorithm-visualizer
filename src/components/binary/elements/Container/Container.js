@@ -92,7 +92,7 @@ function Container() {
         <div className="container">
             <div className="barsContainer">
                 {[...Array(dataLength)].map((value, index) => (
-                    <Bar height={currentState.heights[index]} color={currentState.colors[index]}/>
+                    <Bar height={currentState.heights[index]/Math.max(...currentState.heights)} color={currentState.colors[index]}/>
                 ))}
             </div>
             <div className="buttonsContainer">

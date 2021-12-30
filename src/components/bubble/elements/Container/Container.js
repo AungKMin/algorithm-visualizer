@@ -85,7 +85,7 @@ function Container() {
         <div className="container">
             <div className="barsContainer">
                 {[...Array(dataLength)].map((value, index) => (
-                    <Bar height={currentState.heights[index]} />
+                    <Bar height={currentState.heights[index]/Math.max(...currentState.heights)} />
                 ))}
             </div>
             <div className="buttonsContainer">
