@@ -1,6 +1,6 @@
 # Algorithm Visualizer Built in React
 
-Demo: to be created
+Demo: https://youtu.be/-xxzenIDDY4
 
 Hosted here: https://algorithm-visualizer-aungkmin.netlify.app
 
