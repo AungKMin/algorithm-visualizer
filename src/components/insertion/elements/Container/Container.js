@@ -57,7 +57,12 @@ function Container() {
         // make new trace 
         let newTraceObject = newTrace();
         // get array to be sorted from input field
-        let dataInput = e.target.data.value.split(',').map((c) => (Number(c)));
+        let dataInput;
+        try {
+            dataInput = e.target.data.value.split(',').map((c) => (Number(c)));
+        } catch { 
+            alert("please enter a valid array");
+        }
         let colors = dataInput.map((c, index) => (COLORS[index % COLORS.length]));
         // make the trace with sort
         insertionSort(newTraceObject, dataInput, colors);

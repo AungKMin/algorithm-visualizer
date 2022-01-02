@@ -56,7 +56,12 @@ function Container() {
         // make new trace 
         let newTraceObject = newTrace();
         // get array to be sorted from input field
-        let dataInput = e.target.data.value.split(',').map((c) => (Number(c)));
+        let dataInput;
+        try {
+            dataInput = e.target.data.value.split(',').map((c) => (Number(c)));
+        } catch { 
+            alert("please enter a valid array");
+        }
         // set value to search for
         // setValue(parseFloat(e.target.value.value));
         let colors = dataInput.map((c) => (''));
@@ -89,6 +94,7 @@ function Container() {
 
     return (
         <div className="container">
+            <h2>Enter the value to search for in "Value"</h2>
             <div className="barsContainer">
                 {[...Array(dataLength)].map((value, index) => (
                     <Bar height={currentState.heights[index]/Math.max(...currentState.heights)} color={currentState.colors[index]}/>
